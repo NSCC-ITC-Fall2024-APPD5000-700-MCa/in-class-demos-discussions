@@ -1,0 +1,104 @@
+{
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": ["--init"],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "github.copilot",
+                "github.copilot-chat",
+                "cs50.extension-uninstaller",
+                "hediet.vscode-drawio",
+                "ms-vsliveshare.vsliveshare",
+                "analytic-signal.preview-pdf",
+                "/opt/cs50/extensions/explain50-1.0.0.vsix",
+                "/opt/cs50/extensions/ddb50-2.0.0.vsix",
+                "/opt/cs50/extensions/style50-0.0.1.vsix"
+            ],
+            "settings": {
+                "chat.agent.enabled": true,
+                "chat.tools.autoApprove": false,
+
+                "editor.emptySuggestionHint": "off",
+                "editor.inlineSuggest.enabled": false,
+                "extensions.ignoreRecommendations": true,
+                "extensions.showRecommendationsOnlyOnDemand": true,
+
+                "extension-uninstaller.uninstall": [],
+
+                "files.autoSave": "afterDelay",
+
+                "files.exclude": {
+                    "**/.*": true,
+                    "**/*.json": true,
+                    "**/node_modules": true
+                },
+
+                "files.trimTrailingWhitespace": true,
+
+                "files.watcherExclude": {
+                    "**/.git/objects/**": true,
+                    "**/.git/subtree-cache/**": true,
+                    "**/node_modules/*/**": true
+                },
+
+                "git.autofetch": true,
+                "github.codespaces.devcontainerChangedNotificationStyle": "notification",
+
+                // GitHub Copilot
+                "github.copilot.enable": {
+                    "*": true
+                },
+
+                "github.copilot-chat.enable": true,
+
+                // Full Agent functionality
+                "github.copilot.chat.agent.autoFix": true,
+                "github.copilot.chat.agent.runTasks": true,
+                "github.copilot.chat.agent.currentEditorContext.enabled": true,
+
+                // Copilot editing and generation
+                "github.copilot.chat.edits.enable": true,
+                "github.copilot.chat.edits.newNotebook.enabled": true,
+                "github.copilot.chat.setupTests.enabled": true,
+                "github.copilot.chat.codeGeneration.enable": true,
+
+                // Chat capabilities
+                "github.copilot.chat.explain.enable": true,
+                "github.copilot.chat.questions.enable": true,
+                "github.copilot.chat.summarizeAgentConversationHistory.enabled": true,
+
+                // Additional Copilot capabilities
+                "github.copilot.chat.reviewSelection.enabled": true,
+                "github.copilot.chat.startDebugging.enabled": true,
+                "github.copilot.chat.newWorkspaceCreation.enabled": true,
+                "github.copilot.chat.edits.suggestRelatedFilesForTests": true,
+
+                // Editor integration
+                "github.copilot.editor.enableCodeActions": true,
+                "github.copilot.editor.enableCodeEdits": true,
+
+                // Keep inline completions disabled
+                "github.copilot.inlineSuggest.enable": false,
+
+                "github.copilot.showWelcome": false,
+
+                // Agent tools require approval
+                "chat.tools.autoApprove": false,
+
+                // Agent skills and subagents
+                "chat.useAgentSkills": true,
+                "chat.subagents.allowInvocationsFromSubagents": true,
+
+                // Do not globally auto-approve tools
+                "chat.tools.global.autoApprove": false,
+
+                "terminal.integrated.initialHint": false,
+                "workbench.editor.untitled.hint": "hidden"
+            }
+        }
+    },
+    "postCreateCommand": "git config pull.rebase false && npm i readline-sync prompt-sync"
+}
